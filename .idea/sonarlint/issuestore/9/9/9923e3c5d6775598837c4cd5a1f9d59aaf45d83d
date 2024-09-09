@@ -1,0 +1,71 @@
+
+:javascript:S2990	"Remove the use of "this".(§³¶¡ÿÿÿÿÿ
+:javascript:S2990	"Remove the use of "this".(§³¶¡ÿÿÿÿÿ
+Jjavascript:S3504")Unexpected var, use let or const instead.(‰Ó •ÿÿÿÿÿ
+Jjavascript:S3504")Unexpected var, use let or const instead.(æáşÍşÿÿÿÿ
+Jjavascript:S3504")Unexpected var, use let or const instead.(ÓÈß’ûÿÿÿÿ
+Jjavascript:S3504")Unexpected var, use let or const instead.(î³„Ïşÿÿÿÿ
+Jjavascript:S3504+")Unexpected var, use let or const instead.(Ù‘›éşÿÿÿÿ
+Djavascript:S3504.")Unexpected var, use let or const instead.(º*
+Jjavascript:S3504/")Unexpected var, use let or const instead.(ïàêùÿÿÿÿ
+Ejavascript:S35040")Unexpected var, use let or const instead.(­¢¤ê
+Ejavascript:S35041")Unexpected var, use let or const instead.(µÅ›µ
+Ejavascript:S3504:")Unexpected var, use let or const instead.(Ôˆ¿ò
+Ejavascript:S3504;")Unexpected var, use let or const instead.(‘ªÉ
+fjavascript:S6653<"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(âÃå¦
+Jjavascript:S3504I")Unexpected var, use let or const instead.(õï±Õüÿÿÿÿ
+Jjavascript:S3504W")Unexpected var, use let or const instead.(ü¿ÏÚûÿÿÿÿ
+Ejavascript:S3504b")Unexpected var, use let or const instead.(ìóø³
+pjavascript:S3776b"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ìóø³
+Jjavascript:S3504e")Unexpected var, use let or const instead.(‚·…“ûÿÿÿÿ
+Jjavascript:S3504f")Unexpected var, use let or const instead.(ÎÀÓüÿÿÿÿÿ
+Ejavascript:S3504g")Unexpected var, use let or const instead.(­ä¾
+|javascript:S1874k"[The signature '(from: number, length?: number): string' of 'selector.substr' is deprecated.(Øûé•ıÿÿÿÿ
+kjavascript:S3403u"JRemove this "!==" check; it will always be true. Did you mean to use "!="?(‹‡‘²üÿÿÿÿ
+|javascript:S1874z"[The signature '(from: number, length?: number): string' of 'selector.substr' is deprecated.(öÄÍÎùÿÿÿÿ
+`javascript:S6660~"?'If' statement should not be the only statement in 'else' block(Ì–ãüıÿÿÿÿ
+|javascript:S1874~"[The signature '(from: number, length?: number): string' of 'selector.substr' is deprecated.(Ì–ãüıÿÿÿÿ
+xjavascript:S1874†"[The signature '(from: number, length?: number): string' of 'selector.substr' is deprecated.(¼¶Ïù
+Fjavascript:S3504ª")Unexpected var, use let or const instead.(ÉÙ™
+qjavascript:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÉÙ™
+Ijavascript:S6557­"'Use 'String#startsWith' method instead.(¡ËüÓıÿÿÿÿ
+wjavascript:S1874®"UThe signature '(from: number, length?: number): string' of 'id.substr' is deprecated.(¹ßœæûÿÿÿÿ
+Kjavascript:S3504±")Unexpected var, use let or const instead.(¿÷°çÿÿÿÿÿ
+Kjavascript:S3504²")Unexpected var, use let or const instead.(¤ÈÑÔşÿÿÿÿ
+Kjavascript:S3504³")Unexpected var, use let or const instead.(ÖâŠüÿÿÿÿ
+Kjavascript:S3504´")Unexpected var, use let or const instead.(Â¹óæÿÿÿÿÿ
+Kjavascript:S3504µ")Unexpected var, use let or const instead.(Éäå±üÿÿÿÿ
+Fjavascript:S3504¶")Unexpected var, use let or const instead.(ÇÌÃ
+Fjavascript:S3504û")Unexpected var, use let or const instead.(åôâè
+qjavascript:S3776û"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(åôâè
+Kjavascript:S3504ü")Unexpected var, use let or const instead.(‘Ö²Óüÿÿÿÿ
+Fjavascript:S3504”")Unexpected var, use let or const instead.(¤Ñº¬
+Fjavascript:S3504•")Unexpected var, use let or const instead.(ºó–ì
+Kjavascript:S3504¥")Unexpected var, use let or const instead.(ì•Ø¡üÿÿÿÿ
+Kjavascript:S3504®")Unexpected var, use let or const instead.(äº±¨øÿÿÿÿ
+Kjavascript:S3504¼")Unexpected var, use let or const instead.(Éı„ïøÿÿÿÿ
+Kjavascript:S3504Æ")Unexpected var, use let or const instead.(õŠÖ­üÿÿÿÿ
+Fjavascript:S3504Î")Unexpected var, use let or const instead.(‹â˜È
+Fjavascript:S3504è")Unexpected var, use let or const instead.(ìºÛÃ
+Kjavascript:S3504é")Unexpected var, use let or const instead.(Ì‘êüÿÿÿÿ
+Fjavascript:S3504ì")Unexpected var, use let or const instead.(ÛŒ®
+[javascript:S6644ì">Unnecessary use of boolean literals in conditional expression.(ÛŒ®
+Fjavascript:S3504í")Unexpected var, use let or const instead.(ªéåã
+Kjavascript:S3504ï")Unexpected var, use let or const instead.(…™« ûÿÿÿÿ
+Kjavascript:S3504ø")Unexpected var, use let or const instead.(°¶†Áùÿÿÿÿ
+Fjavascript:S3504ù")Unexpected var, use let or const instead.(ÀüÕŸ
+Kjavascript:S3504ú")Unexpected var, use let or const instead.(ù‰™ÿøÿÿÿÿ
+Kjavascript:S3504û")Unexpected var, use let or const instead.(¼Í“œşÿÿÿÿ
+Kjavascript:S3504ü")Unexpected var, use let or const instead.(ßÌÕ¿ıÿÿÿÿ
+Ejavascript:S3504…")Unexpected var, use let or const instead.(èâşi
+Kjavascript:S3504†")Unexpected var, use let or const instead.(ŠÒÓµûÿÿÿÿ
+Ejavascript:S3504™")Unexpected var, use let or const instead.(»áä
+Fjavascript:S3504¦")Unexpected var, use let or const instead.(²±ˆ†
+Kjavascript:S3504¼")Unexpected var, use let or const instead.(ë©ïÛÿÿÿÿÿ
+Fjavascript:S3504¿")Unexpected var, use let or const instead.(¥ÍÜ
+Rjavascript:S1481¿"5Remove the declaration of the unused 'hash' variable.(¥ÍÜ
+Ojavascript:S1854¿"2Remove this useless assignment to variable "hash".(¥ÍÜ
+Kjavascript:S3504Ô")Unexpected var, use let or const instead.(•Á’ÿÿÿÿÿ
+Kjavascript:S3504á")Unexpected var, use let or const instead.(Ñ„„÷ûÿÿÿÿ
+Ejavascript:S3504í")Unexpected var, use let or const instead.(×öµ
+Kjavascript:S3504“")Unexpected var, use let or const instead.(Ïáëúÿÿÿÿ
