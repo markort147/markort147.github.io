@@ -12,16 +12,20 @@
 
     <div id="main-view">
         <h1>Marco's Blog</h1>
-        <ol>
-            <li><a href="/contents/blog/first_article.html">First article</a></li>
-            <li>Second article</li>
-            <li>Third article</li>
-        </ol>
+
+        <div id="blog-posts">
+            <div class="post-link" data-md-src="/contents/blog/first_article.md"></div>
+            <!-- <div class="post-link" data-md-src="/contents/blog/second_article.md"></div> -->
+            <!-- <div class="post-link" data-md-src="/contents/blog/third_article.md"></div> -->
+        </div>
     </div>
 
     <div data-include="/includes/footer.html"></div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="/js/scripts.js" defer></script>
+    <script src="/js/blog.js" defer></script>
+
 </body>
 
 </html>
