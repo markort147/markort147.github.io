@@ -102,9 +102,19 @@ strong {
     height: 46px;
 }
 
-#navbar button {
+#navbar .navbar-item {
     padding: 15px 32px;
     font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    color: inherit;
+    border: none;
+    text-align: center;
+    display: inline-block;
+}
+
+#navbar .navbar-item:hover {
+    color: var(--hover-color);
+    cursor: pointer;
 }
 
 #navbar #title {
