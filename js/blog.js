@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     for (const el of postLinks) {
         const mdPath = el.dataset.mdSrc;
+        const refPath = el.dataset.mdRef;
         try {
             const res = await fetch(mdPath);
             if (!res.ok) throw new Error(`Failed to fetch ${mdPath}`);
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             postDiv.className = 'post-entry';
 
             const a = document.createElement('a');
-            a.href = mdPath.replace(/\.md$/, '.html');
+            a.href = refPath;
             a.textContent = meta.title || mdPath;
 
             const date = document.createElement('span');
@@ -32,8 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             el.replaceWith(postDiv);
         } catch (err) {
-            console.error(`Errore caricando ${mdPath}:`, err);
-            el.innerHTML = `<p><em>Errore caricando post</em></p>`;
+            console.error(`Error loading ${mdPath}:`, err);
+            el.innerHTML = `<p><em>Error loading post</em></p>`;
         }
     }
 });
