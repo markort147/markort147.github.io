@@ -69,10 +69,6 @@ a:active {
     color: var(--a-active);
 }
 
-strong {
-    color: var(--hover-color);
-}
-
 /* FOOTER */
 
 #footer {
@@ -131,8 +127,10 @@ strong {
     /* align-items: center; */
     /* justify-items: center; */
     overflow-y: scroll;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox, Safari 18.2+, Chromium 121+ */
 
     position: fixed;
     top: 45px;
@@ -147,7 +145,22 @@ strong {
     color: var(--color);
 }
 
-.info-block{
-    background-color: var(--bar-bg-color);
+.info-block {
+    border-left: 3px solid blue;
     padding: 15px;
+}
+
+.info-block-title {
+    color: blue;
+    margin-bottom: 10px;
+}
+
+.thoughts-block {
+    border-left: 3px solid rgb(158, 2, 219);
+    padding: 15px;
+}
+
+.thoughts-block-title {
+    color: rgb(158, 2, 219);
+    margin-bottom: 10px;
 }
