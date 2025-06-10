@@ -128,16 +128,26 @@ strong {
 /* MAIN VIEW */
 
 #main-view {
-    align-items: center;
-    justify-items: center;
+    /* align-items: center; */
+    /* justify-items: center; */
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
 
     position: fixed;
     top: 45px;
     bottom: 35px;
-    left: 0;
+    left: 20%;
     right: 0;
     padding-bottom: 15px;
 
+    max-width: 60%;
+
     background-color: var(--bg-color);
     color: var(--color);
+}
+
+.info-block{
+    background-color: var(--bar-bg-color);
+    padding: 15px;
 }

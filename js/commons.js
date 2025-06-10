@@ -15,7 +15,7 @@ function updateHighlightTheme() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1) inject all snippets
+  // inject all snippets
   const placeholders = Array.from(document.querySelectorAll('[data-include]'));
   for (const el of placeholders) {
     const url = el.dataset.include;
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // 2) now that header.html has been injected, wire up the theme-switch
+  // now that header.html has been injected, wire up the theme-switch
   const body = document.body;
   const themeToggle = document.getElementById('switch-theme');
-  if (!themeToggle) return;  // nothing to do if you still don’t have one
+  if (!themeToggle) return;
 
   // restore saved theme
   if (localStorage.getItem('theme') === 'dark') {
@@ -47,26 +47,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // markdown conversion  
-  const posts = document.querySelectorAll('.post');
-  for (const el of posts) {
-    const url = el.dataset.mdUrl;
-    try {
-      const res = await fetch(url, { cache: 'no-cache' });
-      if (!res.ok) throw new Error(res.status);
-      const markdown = await res.text();
-
-      const match = markdown.match(/^---\n([\s\S]+?)\n---\n?/);
-      let content = markdown;
-
-      if (match) {
-        content = markdown.slice(match[0].length);
+  const mdPost = document.getElementById("md-post");
+  const htmlPost = document.getElementById("html-post");
+  if (mdPost && htmlPost) {
+    const markdown = mdPost.innerHTML;
+    if (!markdown) {
+      htmlPost.innerHTML = '<p><em>Failed to load markdown content.</em></p>';
+    } else {
+      try {
+        htmlPost.innerHTML = marked.parse(markdown);
+      } catch (err) {
+        console.error(`Error parsing markdown content:`, err);
+        htmlPost.innerHTML = '<p><em>Failed to load article.</em></p>';
       }
-
-      el.innerHTML = marked.parse(content);
-    } catch (err) {
-      console.error(`Error loading ${url}:`, err);
-      el.innerHTML = '<p><em>Failed to load article.</em></p>';
+      updateHighlightTheme();
     }
   }
-  updateHighlightTheme();
 });

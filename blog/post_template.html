@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>First Article - Marco Romano</title>
+    <link rel="stylesheet" href="/css/fas.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div data-include="/includes/navbar.html"></div>
+
+    <div id="main-view">
+        <div id="html-post"></div>
+    </div>
+
+    <script type="text/markdown" id="md-post">
+# My first article!
+
+> I like it!
+
+## Now a block of code
+It's coming...
+
+``` Go
+fmt.Printf("Ciao")
+```
+
+``` Python
+import pandas as pd
+```
+
+---
+
+Well, it's done!
+    </script>
+
+    <div data-include="/includes/footer.html"></div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="/js/commons.js" defer></script>
+
+</html>
