@@ -10,6 +10,7 @@
     --a-visited: purple;
     --a-active: red;
     --invalid-input-bg-color: rgb(240, 155, 155);
+    --gopher-color: blue;
 }
 
 .dark {
@@ -22,6 +23,7 @@
     --a-visited: lightpink;
     --a-active: lightgreen;
     --invalid-input-bg-color: rgb(65, 30, 30);
+    --gopher-color: lightblue;
 }
 
 body {
@@ -80,6 +82,15 @@ a:active {
     width: 100%;
     font-size: 12px;
     color: var(--color);
+}
+
+#goodbye-wall {
+    color: brown;
+    background-color: orangered;
+}
+
+#goodbye-gopher {
+    color: var(--gopher-color);
 }
 
 /* NAVBAR */
@@ -163,4 +174,8 @@ a:active {
 .thoughts-block-title {
     color: rgb(158, 2, 219);
     margin-bottom: 10px;
+}
+
+#gopher {
+    color: var(--gopher-color);
 }
