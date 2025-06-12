@@ -1,0 +1,35 @@
+---
+layout: header
+---
+
+<div id="navbar" role="navigation" aria-label="main navigation">
+    <a id="title" href="/"><strong>Marco</strong></a>
+
+    <cite>And why should we feel anger at the world? As if the world would notice.</cite>
+
+    {% for page in site.pages %}
+    {% if page.dir == "/" and page.title %}
+    <a class="navbar-item" title="{{ page.title }}" href="{{ page.url | relative_url }}" class="navbar-item">
+        {{ page.title }}
+    </a>
+    {% endif %}
+    {% endfor %}
+
+    <button id="switch-theme" class="navbar-item" title="Switch theme">
+        <i class="fas fa-adjust"></i>
+    </button>
+</div>
+
+<div id="main-view">
+    {{ content }}
+</div>
+
+<div id="footer">
+    <p>
+        <strong><span id="goodbye-wall">┻┳|</span>
+            <span id="goodbye-gopher">･ω･)/</span></strong>
+        <a href="https://github.com/markort147">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </p>
+</div>

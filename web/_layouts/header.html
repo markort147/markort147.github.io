@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/css/fas.css' | relative_url | absolute_url }}" />
+    <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url | absolute_url }}" />
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url | absolute_url }}" type="image/x-icon" />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    {{ content }}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="{{ '/js/commons.js' | relative_url | absolute_url }}" defer></script>
+</body>
+
+
+</html>
