@@ -12,27 +12,63 @@ function updateHighlightTheme() {
 
   newLink.onload = () => hljs.highlightAll();
   document.head.appendChild(newLink);
-  console.log("updated highligth");
+  console.log("updated highlight");
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
-  // wire up the theme-switch
+function applyTheme(theme) {
   const body = document.body;
+  const resolvedTheme = theme === 'auto' ? getSystemTheme() : theme;
+
+  body.classList.toggle('dark', resolvedTheme === 'dark');
+  updateHighlightTheme();
+
+  // Update icon (optional)
+  const themeIcon = document.getElementById('theme-icon');
+  if (themeIcon) {
+    switch (theme) {
+      case 'dark':
+        themeIcon.className = 'fas fa-moon';
+        break;
+      case 'light':
+        themeIcon.className = 'fas fa-sun';
+        break;
+      case 'auto':
+        themeIcon.className = 'fas fa-desktop';
+        break;
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('switch-theme');
+  const themeStates = ['light', 'dark', 'auto'];
+  let currentIndex = themeStates.indexOf(localStorage.getItem('theme') || 'auto');
+
   if (!themeToggle) return;
 
-  // restore saved theme
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
+  function updateTheme() {
+    const theme = themeStates[currentIndex];
+    localStorage.setItem('theme', theme);
+    applyTheme(theme);
   }
 
-  // wire up clicks
+  // On click: cycle through states
   themeToggle.addEventListener('click', () => {
-    const isDark = body.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    updateHighlightTheme();
+    currentIndex = (currentIndex + 1) % themeStates.length;
+    updateTheme();
   });
 
-  updateHighlightTheme();
+  // Watch system preference only in auto mode
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (localStorage.getItem('theme') === 'auto') {
+      applyTheme('auto');
+    }
+  });
+
+  // Initial setup
+  updateTheme();
 });
