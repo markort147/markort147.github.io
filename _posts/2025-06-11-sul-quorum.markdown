@@ -3,6 +3,7 @@ layout: blog
 title:  "Sul Quorum"
 date:   2025-06-11
 language: 🇮🇹
+published: false
 ---
 
 Ispirato dal video di Dr Elegantia, che, a mio parere, ha argomentato fallacemente.
