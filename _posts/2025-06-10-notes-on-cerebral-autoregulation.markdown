@@ -1,8 +1,9 @@
 ---
 layout: blog
 title:  "Notes on Cerebral Autoregulation"
-date:   2025-06-10 00:39:52 +0100
-categories: en
+date:   2025-06-10
+language: 🇬🇧
+published: false
 ---
 
 # Cerebral Autoregulation - Study Notes

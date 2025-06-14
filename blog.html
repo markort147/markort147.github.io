@@ -1,19 +1,17 @@
 ---
 layout: blog
 title: As If The World
+fas: fa-book
+order: 1
 ---
 
-<div style="justify-items: center;" id="main-view">
-
-    <div style="margin: 50px;"><cite>And why should we feel anger at the world? As if the world would notice.</cite>
-    </div>
-
+<div style="justify-items: center;">
     <div>
         <ul>
             {% for post in site.posts %}
             <li>
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                <span>({{ post.categories }})</span>
+                <span>({{ post.language }})</span>
                 <span class="date">{{ post.date | date: "%d %b %Y" }}</span>
             </li>
             {% endfor %}

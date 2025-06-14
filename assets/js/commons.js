@@ -37,7 +37,7 @@ function applyTheme(theme) {
         themeIcon.className = 'fas fa-sun';
         break;
       case 'auto':
-        themeIcon.className = 'fas fa-desktop';
+        themeIcon.className = 'fas fa-circle-half-stroke';
         break;
     }
   }
