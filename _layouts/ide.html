@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ page.title | default: site.title | default: "Site" }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/ide.css' | relative_url }}">
+    <link rel="stylesheet"
+        href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css' />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer src="{{ '/assets/js/ide.js' | relative_url }}"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">◼︎ {{ site.title }}</div>
+        <div class="actions">
+            <button id="hue-dec" aria-label="decrease hue">–</button>
+            <span id="hue-readout">210</span>
+            <button id="hue-inc" aria-label="increase hue">+</button>
+        </div>
+    </header>
+
+    <main class="workspace">
+        <aside class="sidebar" id="sidebar">
+            <div class="section-title">EXPLORER</div>
+            <ul class="tree">
+                <li>
+                    <a href="/index.html">home</a>
+                </li>
+                <li>
+                    <details>
+                        <summary>posts/</summary>
+                        <ul>
+                            {% assign ym = site.posts | group_by_exp: "p", "p.date | date: '%Y-%m'" %}
+                            {% assign ym = ym | sort_natural: 'name' | reverse %}
+                            {% for bucket in ym %}
+                            <li>
+                                <details>
+                                    <summary>{{ bucket.name }}/</summary>
+                                    <ul>
+                                        {% for post in bucket.items %}
+                                        <li>
+                                            <a href="{{ post.url | relative_url }}">
+                                                {{ post.title }} {{ post.language }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </details>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <a href="/about.html">about</a>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="editor" id="editor">
+            <div class="tabs">
+                <button id="sidebar-toggle" aria-label="toggle sidebar">☰</button>
+                <div class="tab active">{{ page.title }} {{ page.date | date: '%Y-%m-%d'}}</div>
+            </div>
+            <article class="doc content">
+                <small>{{ page.date | date: '%Y-%m-%d'}}</small>
+                <h1 align="center">{{ page.title }}</h1>
+                <p align="center"><small>{{ page.subtitle }}</small></p>
+                {{ content }}
+            </article>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+        document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+            document.getElementById('sidebar')?.classList.toggle('hidden');
+            document.querySelector('.workspace')?.classList.toggle('sidebar-hidden');
+        });
+    </script>
+
+</body>
+
+</html>
