@@ -2,7 +2,7 @@
 layout: ide
 title:  "Notes on Cerebral Autoregulation"
 language: 🇬🇧
-published: true
+published: false
 ---
 
 # Cerebral Autoregulation - Study Notes

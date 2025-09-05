@@ -11,10 +11,15 @@
     if (saved) setHue(parseInt(saved, 10));
     document.getElementById('hue-inc')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) + 10));
     document.getElementById('hue-dec')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) - 10));
-    document.getElementById('contrast-toggle')?.addEventListener('click', () => {
-        const high = root.style.getPropertyValue('--bg') === 'oklch(8% 0.02 var(--hue))';
-        root.style.setProperty('--bg', high ? 'oklch(12% 0.03 var(--hue))' : 'oklch(8% 0.02 var(--hue))');
-        root.style.setProperty('--bg-2', high ? 'oklch(16% 0.03 var(--hue))' : 'oklch(12% 0.02 var(--hue))');
-        root.style.setProperty('--bg-3', high ? 'oklch(22% 0.03 var(--hue))' : 'oklch(16% 0.02 var(--hue))');
+})();
+
+(function () {
+    document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+        document.getElementById('sidebar')?.classList.toggle('hidden');
+        document.querySelector('.workspace')?.classList.toggle('sidebar-hidden');
     });
+})();
+
+(function () {
+    hljs.highlightAll();
 })();

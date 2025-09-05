@@ -1,15 +1,9 @@
 :root {
     --hue: 210;
-    --bg: #000;
-    --fg: oklch(92% 0.02 250);
-    --muted: oklch(70% 0.02 250);
-    --accent: oklch(80% 0.08 250);
-    --border: oklch(55% 0.1 var(--hue));
-    --grid-gap: 10px;
-}
-
-[data-theme="dark"] {
-    color-scheme: dark;
+    --bg: rgb(0, 0, 0);
+    --fg: rgb(216, 216, 216);
+    --accent: oklch(80% 0.08 var(--hue));
+    --grid-gap: 2px;
 }
 
 * {
@@ -17,19 +11,22 @@
 }
 
 body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
     background: var(--bg);
     color: var(--fg);
     font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* usa sempre il border dinamico */
 .topbar,
 .sidebar,
 .editor,
-.panel,
 .tabs,
 .tab {
-    border: 1px solid var(--border);
+    border: 1px solid var(--accent);
 }
 
 .topbar {
@@ -38,9 +35,7 @@ body {
     align-items: center;
     padding: 8px 12px;
     background: var(--bg);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    flex: 0 0 auto;
 }
 
 .topbar .brand {
@@ -52,43 +47,74 @@ body {
     color: var(--fg);
     padding: 2px 8px;
     margin-left: 6px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--accent);
     cursor: pointer;
 }
 
 .workspace {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+    display: flex;
+    padding-top: 5px;
+    min-height: 0;
+    flex: 1 1 auto;
     gap: var(--grid-gap);
-    height: calc(100vh - 42px);
-    padding: 10px;
-}
-
-.workspace.sidebar-hidden {
-  grid-template-columns: 0 1fr; 
+    padding: var(--grid-gap) 0;
 }
 
 .sidebar {
     background: var(--bg);
     padding: 10px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: transform 0.2s ease;
+
+    flex: 0 0 auto;
+    width: max-content;
+    min-width: 100px;
+    max-width: 20vw;
+}
+
+#sidebar-title {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 2px 0 6px;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.tab {
+    padding: 8px 12px;
 }
 
 #sidebar-toggle {
-    background: transparent;
-    color: var(--fg);
+    background: inherit;
+    color: inherit;
     cursor: pointer;
     margin: 4px;
     padding: 2px 6px;
     border: none;
 }
 
-.section-title {
-    font-weight: 700;
-    font-size: 12px;
-    color: var(--muted);
-    margin: 2px 0 6px;
+.content {
+    padding: 16px;
+    overflow: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.sidebar.hidden {
+    display: none;
 }
 
 .tree,
@@ -102,32 +128,6 @@ body {
     margin: 2px 0;
 }
 
-.editor {
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.tabs {
-    display: flex;
-    background: var(--bg);
-}
-
-.tab {
-    padding: 8px 12px;
-    color: var(--muted);
-}
-
-.tab.active {
-    color: var(--fg);
-    background: var(--bg);
-}
-
-.content {
-    padding: 16px;
-    overflow: auto;
-}
 
 .content a {
     color: var(--accent);
@@ -140,33 +140,10 @@ body {
     overflow: auto;
 }
 
-.panel {
-    background: var(--bg);
-    overflow: hidden;
-}
-
-.panel-title {
-    padding: 6px 10px;
-    color: var(--muted);
-}
-
-@media (max-width: 880px) {
-    .workspace {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 200px;
-    }
-
-    .sidebar {
-        grid-row: auto;
-    }
-}
-
-/* Explorer: toggle personalizzato per <details>/<summary> */
 .sidebar details {
     margin: 4px 0;
 }
 
-/* nasconde il marker nativo */
 .sidebar summary {
     cursor: pointer;
     list-style: none;
@@ -176,33 +153,28 @@ body {
     font-weight: normal;
 }
 
-/* Chrome/Safari */
 .sidebar summary::-webkit-details-marker {
     display: none;
 }
 
-/* Firefox */
 .sidebar summary::marker {
     content: "";
 }
 
 .sidebar summary::before {
     content: "▾";
-    /* freccia */
     display: inline-block;
     width: 1em;
     text-align: center;
     transition: transform .2s;
     margin-right: 2px;
-    color: var(--muted);
+    color: var(--fg);
 }
 
 .sidebar details:not([open])>summary::before {
     transform: rotate(-90deg);
-    /* ▶ quando chiuso */
 }
 
-/* opzionale: pulizia liste */
 .tree,
 .tree ul {
     list-style: none;

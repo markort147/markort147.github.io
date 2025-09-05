@@ -1,15 +1,18 @@
 ---
 layout: ide
 title:  "Sul Quorum"
-subtitle: "O di come ho amato a non votare"
 language: 🇮🇹
+published: false
 ---
 
+# Sul Quorum
 
-Ispirato dal video di Dr Elegantia, che, a mio parere, ha argomentato fallacemente.
-Chi vorrebbe abolire il quorum parla di distorsione democratica e scarsa partecipazione.
-Sono d'accordo con Umberto sul fatto che la correlazione tra quorum e partecipazione va dimostrata con i dati. Dati che sembra non mostrare tale correlazione.
-Ma questo articolo è sull'altro argomento, che mi trova più tendente verso l'abolizione del quorum.
+
+> In risposta al [video](https://www.youtube.com/watch?v=A-nlXG8DjNo&pp=ygUTZHIgZWxlZ2FudGlhIHF1b3J1bQ%3D%3D) di Dr Elegantia, che, a mio parere, ha argomentato fallacemente.
+
+Chi vorrebbe abolire il quorum parla di distorsione democratica e scarsa partecipazione. Sono d'accordo con Umberto sul fatto che la correlazione tra quorum e partecipazione va dimostrata con i dati. Dati che sembra non mostrare tale correlazione. Ma questo articolo è sull'altro argomento, che mi trova più tendente verso l'abolizione del quorum.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/762_12-Quoya_atriplicina.jpg/1024px-762_12-Quoya_atriplicina.jpg" style="width:50vh;">
 
 Argomenti sentiti contro abolizione:
 - non è giusto che pochissimi possano decidere per un intero paese --> ma quelli che non votano, di grazia, sono stati costretti ad astenersi? Hanno deciso di non votare, così come avrebbero potuto deciso di farlo. Togliere il quorum, inoltre, renderebbe l'astensione un autentico atto di disinteresse, anziché di distorsione del mezzo.

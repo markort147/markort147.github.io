@@ -3,22 +3,12 @@ layout: ide
 title: home
 ---
 
-# Hello
+# Hello, World!
 
-This is your content area. Write posts or docs here.
+<img id="home-carousel" alt="random image" style="max-width: 80%; height: auto;">
 
-<p align="center">Centrato?</p>
-
-```C
-int main() {
-    return 0;
-}
-```
-
-```python
-def hello():
-    return "mono"
-```
-
-\\[ \Delta V_{brain} + \Delta V_{blood} + \Delta V_{csf} = 0 \\]
-
+<script>
+  const n = 13; 
+  const rand = Math.floor(Math.random() * n) + 1;
+  document.getElementById("home-carousel").src = `/assets/img/home-carousel/${rand}.jpg`;
+</script>

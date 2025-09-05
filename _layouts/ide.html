@@ -9,22 +9,23 @@
     <link rel="stylesheet"
         href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css' />
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     <script defer src="{{ '/assets/js/ide.js' | relative_url }}"></script>
 </head>
 
 <body>
     <header class="topbar">
-        <div class="brand">◼︎ {{ site.title }}</div>
+        <div class="brand">ʕ◔ϖ◔ʔ🧠⚛️ {{ site.title }}</div>
         <div class="actions">
+            accent:
             <button id="hue-dec" aria-label="decrease hue">–</button>
-            <span id="hue-readout">210</span>
             <button id="hue-inc" aria-label="increase hue">+</button>
         </div>
     </header>
 
     <main class="workspace">
         <aside class="sidebar" id="sidebar">
-            <div class="section-title">EXPLORER</div>
+            <div id="sidebar-title">EXPLORER</div>
             <ul class="tree">
                 <li>
                     <a href="/index.html">home</a>
@@ -57,34 +58,22 @@
                 <li>
                     <a href="/about.html">about</a>
                 </li>
+                <li>
+                    <a href="/feed.xml">rss</a>
+                </li>
             </ul>
         </aside>
 
         <section class="editor" id="editor">
             <div class="tabs">
                 <button id="sidebar-toggle" aria-label="toggle sidebar">☰</button>
-                <div class="tab active">{{ page.title }} {{ page.date | date: '%Y-%m-%d'}}</div>
+                <div class="tab">{{ page.date | date: '%Y-%m-%d'}} {{ page.title }}</div>
             </div>
             <article class="doc content">
-                <small>{{ page.date | date: '%Y-%m-%d'}}</small>
-                <h1 align="center">{{ page.title }}</h1>
-                <p align="center"><small>{{ page.subtitle }}</small></p>
                 {{ content }}
             </article>
         </section>
     </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-    <script>
-        hljs.highlightAll();
-    </script>
-    <script>
-        document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
-            document.getElementById('sidebar')?.classList.toggle('hidden');
-            document.querySelector('.workspace')?.classList.toggle('sidebar-hidden');
-        });
-    </script>
-
 </body>
 
 </html>
