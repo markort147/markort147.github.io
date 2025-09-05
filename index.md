@@ -8,7 +8,13 @@ title: home
 <img id="home-carousel" alt="random image" style="max-width: 80%; height: auto;">
 
 <script>
-  const n = 13; 
-  const rand = Math.floor(Math.random() * n) + 1;
-  document.getElementById("home-carousel").src = `/assets/img/home-carousel/${rand}.jpg`;
+  const images = [
+    {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/assets/img/home-carousel/'" %}
+    {% for f in imgs %}
+      "{{ f.path }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  const pick = images[Math.floor(Math.random() * images.length)];
+  document.getElementById("home-carousel").src = pick;
 </script>
