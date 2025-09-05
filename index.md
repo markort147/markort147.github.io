@@ -5,7 +5,7 @@ title: home
 
 # Hello, World!
 
-<img id="home-carousel" alt="random image" style="max-width: 80%; height: auto;">
+<img id="home-carousel" alt="random image" style="max-width: 80%; max-height: 60vh;">
 
 <script>
   const images = [
