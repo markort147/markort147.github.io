@@ -3,7 +3,7 @@
     --bg: rgb(0, 0, 0);
     --fg: rgb(216, 216, 216);
     --accent: oklch(80% 0.08 var(--hue));
-    --grid-gap: 2px;
+    --grid-gap: 0px;
 }
 
 * {
