@@ -9,8 +9,8 @@
     };
     const saved = localStorage.getItem('mono-hue');
     if (saved) setHue(parseInt(saved, 10));
-    document.getElementById('hue-inc')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) + 10));
-    document.getElementById('hue-dec')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) - 10));
+    document.getElementById('hue-inc')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) + 40));
+    document.getElementById('hue-dec')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) - 40));
 })();
 
 (function () {

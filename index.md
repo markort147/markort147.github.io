@@ -18,3 +18,8 @@ title: home
   const pick = images[Math.floor(Math.random() * images.length)];
   document.getElementById("home-carousel").src = pick;
 </script>
+
+
+> “And why should we feel anger at the world? As if the world would notice!” 
+> 
+> Marcus Aurelius

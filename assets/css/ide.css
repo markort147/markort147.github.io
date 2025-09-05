@@ -1,5 +1,5 @@
 :root {
-    --hue: 210;
+    --hue: 220;
     --bg: rgb(0, 0, 0);
     --fg: rgb(216, 216, 216);
     --accent: oklch(80% 0.08 var(--hue));
