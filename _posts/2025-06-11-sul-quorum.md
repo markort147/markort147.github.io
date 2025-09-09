@@ -12,6 +12,17 @@ published: false
 
 Chi vorrebbe abolire il quorum parla di distorsione democratica e scarsa partecipazione. Sono d'accordo con Umberto sul fatto che la correlazione tra quorum e partecipazione va dimostrata con i dati. Dati che sembra non mostrare tale correlazione. Ma questo articolo è sull'altro argomento, che mi trova più tendente verso l'abolizione del quorum.
 
+```C
+#include<stdio.h>
+
+int main() {
+	print("Hello, World!");
+
+	return 0;
+}
+```
+
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/762_12-Quoya_atriplicina.jpg/1024px-762_12-Quoya_atriplicina.jpg" style="width:50vh;">
 
 Argomenti sentiti contro abolizione:

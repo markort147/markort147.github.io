@@ -5,7 +5,19 @@ title: home
 
 # Hello, World!
 
-<img id="home-carousel" alt="random image" style="max-width: 80%; max-height: 60vh;">
+<div class="quote">
+  <blockquote class="quote-text">
+    And why should we feel anger at the world? As if the world would notice!
+  </blockquote>
+  <figcaption class="quote-meta">
+    <!-- <span class="quote-from">Meditations</span> —  -->
+    <span class="quote-author">Marcus Aurelius</span>
+  </figcaption>
+</div>
+
+<div align="center">
+<img id="home-carousel" alt="random image" style="max-width: 100%">
+</div>
 
 <script>
   const images = [
@@ -18,8 +30,3 @@ title: home
   const pick = images[Math.floor(Math.random() * images.length)];
   document.getElementById("home-carousel").src = pick;
 </script>
-
-
-> “And why should we feel anger at the world? As if the world would notice!” 
-> 
-> Marcus Aurelius

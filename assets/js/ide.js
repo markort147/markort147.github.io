@@ -1,26 +1,4 @@
 (function () {
-    const root = document.documentElement;
-    const readout = document.getElementById('hue-readout');
-    const setHue = (h) => {
-        const v = ((h % 360) + 360) % 360;
-        root.style.setProperty('--hue', v);
-        if (readout) readout.textContent = v;
-        localStorage.setItem('mono-hue', v);
-    };
-    const saved = localStorage.getItem('mono-hue');
-    if (saved) setHue(parseInt(saved, 10));
-    document.getElementById('hue-inc')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) + 40));
-    document.getElementById('hue-dec')?.addEventListener('click', () => setHue((+getComputedStyle(root).getPropertyValue('--hue')) - 40));
-})();
-
-(function () {
-    document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
-        document.getElementById('sidebar')?.classList.toggle('hidden');
-        document.querySelector('.workspace')?.classList.toggle('sidebar-hidden');
-    });
-})();
-
-(function () {
     hljs.highlightAll();
 })();
 
@@ -31,4 +9,32 @@
             link.setAttribute('rel', 'noopener noreferrer');
         }
     });
-})()
+})();
+
+(function () {
+  const root = document.documentElement;
+  const btn  = document.getElementById("theme-toggle");
+  const order = ["light", "dark", "auto"];
+
+  function current() { return root.hasAttribute("data-theme") ? root.getAttribute("data-theme") : "auto"; }
+
+  function apply(mode) {
+    if (mode === "auto") {
+      root.removeAttribute("data-theme");
+      localStorage.setItem("theme-mode", "auto");
+    } else {
+      root.setAttribute("data-theme", mode);
+      localStorage.setItem("theme-mode", mode);
+    }
+    btn.textContent = mode === "light" ? "☀️" : mode === "dark" ? "🌙" : "🖥️";
+    btn.title = "Theme: " + mode;
+  }
+
+  btn?.addEventListener("click", () => {
+    const next = order[(order.indexOf(current()) + 1) % order.length];
+    apply(next);
+  });
+
+  // init icon
+  apply(current());
+})();

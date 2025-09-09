@@ -1,9 +1,53 @@
 :root {
-    --hue: 220;
-    --bg: rgb(0, 0, 0);
-    --fg: rgb(216, 216, 216);
-    --accent: oklch(80% 0.08 var(--hue));
+    --bg-dark: rgb(34, 34, 34);
+    --fg-dark: rgb(228, 228, 228);
+    --accent-dark: rgb(89, 169, 245);
+
+    --bg-light: rgb(245, 245, 245);
+    --fg-light: rgb(48, 48, 48);
+    --accent-light: rgb(48, 83, 240);
+    --bg-light: rgb(245, 245, 245);
+    --fg-light: rgb(48, 48, 48);
+    --accent-light: rgb(204, 81, 32);
+
+    --bg: var(--bg-dark);
+    --fg: var(--fg-dark);
+    --accent: var(--accent-dark);
+    color-scheme: dark;
+
     --grid-gap: 0px;
+}
+
+:root[data-theme="dark"] {
+    --bg: var(--bg-dark);
+    --fg: var(--fg-dark);
+    --accent: var(--accent-dark);
+    color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+    --bg: var(--bg-light);
+    --fg: var(--fg-light);
+    --accent: var(--accent-light);
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --bg: var(--bg-light);
+        --fg: var(--fg-light);
+        --accent: var(--accent-light);
+        color-scheme: light;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg: var(--bg-dark);
+        --fg: var(--fg-dark);
+        --accent: var(--accent-dark);
+        color-scheme: dark;
+    }
 }
 
 * {
@@ -11,21 +55,22 @@
 }
 
 body {
-    margin: 0;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    height: 100dvh;
     background: var(--bg);
     color: var(--fg);
-    font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    margin: 0;
+    padding: 3px;
 }
 
-.topbar,
-.sidebar,
-.editor,
-.tabs,
-.tab {
+#container {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 900px;
+    height: 100%;
+    font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     border: 1px solid var(--accent);
 }
 
@@ -40,14 +85,12 @@ body {
 
 .topbar .brand {
     letter-spacing: .04em;
+    font-weight: bold;
 }
 
-.topbar .actions button {
-    background: transparent;
-    color: var(--fg);
-    padding: 2px 8px;
-    margin-left: 6px;
-    border: 1px solid var(--accent);
+.topbar button {
+    border: none;
+    background: inherit;
     cursor: pointer;
 }
 
@@ -55,9 +98,11 @@ body {
     display: flex;
     padding-top: 5px;
     min-height: 0;
+    min-block-size: 0;
     flex: 1 1 auto;
     gap: var(--grid-gap);
     padding: var(--grid-gap) 0;
+    border-top: 1px solid var(--accent);
 }
 
 .sidebar {
@@ -67,77 +112,12 @@ body {
     overflow-x: hidden;
     transition: transform 0.2s ease;
 
+    border-right: 1px solid var(--accent);
+
     flex: 0 0 auto;
     width: max-content;
     min-width: 100px;
     max-width: 20vw;
-}
-
-#sidebar-title {
-    font-weight: 700;
-    font-size: 12px;
-    margin: 2px 0 6px;
-}
-
-.editor {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 0;
-    flex: 1 1 auto;
-    overflow: hidden;
-}
-
-.tabs {
-    display: flex;
-    flex: 0 0 auto;
-}
-
-.tab {
-    padding: 8px 12px;
-}
-
-#sidebar-toggle {
-    background: inherit;
-    color: inherit;
-    cursor: pointer;
-    margin: 4px;
-    padding: 2px 6px;
-    border: none;
-}
-
-.content {
-    padding: 16px;
-    overflow: auto;
-    flex: 1 1 auto;
-    min-height: 0;
-}
-
-.sidebar.hidden {
-    display: none;
-}
-
-.tree,
-.tree ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 16px;
-}
-
-.tree li {
-    margin: 2px 0;
-}
-
-
-.content a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--accent);
-}
-
-.content pre {
-    padding: 10px;
-    overflow: auto;
 }
 
 .sidebar details {
@@ -175,13 +155,6 @@ body {
     transform: rotate(-90deg);
 }
 
-.tree,
-.tree ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 16px;
-}
-
 .sidebar a {
     color: inherit;
     text-decoration: none;
@@ -191,4 +164,89 @@ body {
 .sidebar a:focus {
     color: inherit;
     text-decoration: none;
+}
+
+.tree,
+.tree ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 16px;
+}
+
+.tree li {
+    margin: 2px 0;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    flex: 0 0 auto;
+    border-bottom: 1px solid var(--accent);
+}
+
+.tab {
+    padding: 8px 12px;
+    border-right: 1px solid var(--accent);
+}
+
+.scrollable {
+    block-size: 100%;
+    overflow-y: auto;
+    padding: 20px 70px;
+    flex: 1 1 auto;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--bg);
+}
+
+.content {
+    margin-inline: auto;
+    max-width: 90ch;
+    min-width: 0;
+}
+
+.content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent);
+}
+
+.content pre {
+    padding: 10px;
+    overflow: auto;
+}
+
+.quote {
+    margin-block: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-left: 2px solid var(--accent);
+    background: color-mix(in srgb, var(--bg) 95%, var(--accent) 5%);
+    font-style: italic;
+}
+
+.quote-text {
+    margin: 0 0 .5rem 0;
+    line-height: 1.6;
+}
+
+.quote-meta {
+    font-size: 0.9em;
+    color: var(--fg);
+    opacity: 0.9;
+}
+
+.quote-from {
+    font-weight: 500;
+}
+
+.quote-author {
+    font-style: normal;
 }
