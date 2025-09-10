@@ -16,8 +16,12 @@ title: home
 </div>
 
 <div align="center">
-<img id="home-carousel" alt="random image" style="max-width: 100%">
+<img id="home-carousel" alt="random image" style="max-width: 90%">
 </div>
+
+## Must read
+- [Just fucking use HTML](https://justfuckingusehtml.com/)
+- [The grug designer](https://www.grug.design/know)
 
 <script>
   const images = [
@@ -26,7 +30,6 @@ title: home
       "{{ f.path }}"{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ];
-
   const pick = images[Math.floor(Math.random() * images.length)];
   document.getElementById("home-carousel").src = pick;
 </script>
