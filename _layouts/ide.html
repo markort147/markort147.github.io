@@ -30,7 +30,7 @@
         </header>
 
         <main class="workspace">
-            <aside class="sidebar" id="sidebar">
+            <aside class="sidebar hidden-mobile" id="sidebar">
                 <ul class="tree">
                     <li>
                         <a href="/">home</a>
@@ -71,6 +71,7 @@
 
             <section class="editor" id="editor">
                 <div class="tabs">
+                    <button id="sidebar-toggle" class="show-mobile">☰</button>
                     <div class="tab">{{ page.date | date: '%Y-%m-%d'}} {{ page.title }}</div>
                 </div>
                 <div class="scrollable">

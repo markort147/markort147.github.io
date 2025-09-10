@@ -192,6 +192,15 @@ body {
     border-bottom: 1px solid var(--accent);
 }
 
+#sidebar-toggle {
+    padding: 8px 12px;
+    border: none;
+    border-right: 1px solid var(--accent);
+    background: inherit;
+    font-size: large;
+    cursor: pointer;
+}
+
 .tab {
     padding: 8px 12px;
     border-right: 1px solid var(--accent);
@@ -205,6 +214,12 @@ body {
     min-height: 0;
     scrollbar-width: thin;
     scrollbar-color: var(--accent) var(--bg);
+}
+
+@media (max-width: 768px) {
+  .scrollable {
+    padding: 10px 10px;
+  }
 }
 
 .content {
@@ -249,4 +264,25 @@ body {
 
 .quote-author {
     font-style: normal;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .show-mobile {
+    display: block;
+  }
+}
+
+
+.hidden-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
 }
