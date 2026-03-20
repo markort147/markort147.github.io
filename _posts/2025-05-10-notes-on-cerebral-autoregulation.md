@@ -3,6 +3,7 @@ layout: ide
 title:  "Notes on Cerebral Autoregulation"
 language: 🇬🇧
 published: false
+use_math: true
 ---
 
 # Cerebral Autoregulation - Study Notes
@@ -55,7 +56,6 @@ The model describes a sort of Ohm's Law, where the perfusion pressure is a tensi
 > - Every terms of the law could be expanded as a function of MAP. CVR is a function of MAP, because vessels change their diameter in response to ABP changes. ICP is strictly related to blood volume, thus to vessels size, thus again to ABP. Therefore, there should be a way to express CBF as entirely and solely dependant on MAP.
 
 ## Experimental state of the art
-
 
 
 

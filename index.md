@@ -15,9 +15,12 @@ title: home
   </figcaption>
 </div>
 
-<div align="center">
-<img id="home-carousel" alt="random image" style="max-width: 90%">
-</div>
+<figure class="home-carousel">
+  <div class="home-carousel__frame">
+    <img id="home-carousel-img" alt="Random frame from my photo roll" width="1600" height="1066" loading="lazy"
+      decoding="async">
+  </div>
+</figure>
 
 ## Must read
 - [Just fucking use HTML](https://justfuckingusehtml.com/)
@@ -31,5 +34,6 @@ title: home
     {% endfor %}
   ];
   const pick = images[Math.floor(Math.random() * images.length)];
-  document.getElementById("home-carousel").src = pick;
+  const frame = document.getElementById("home-carousel-img");
+  if (frame) frame.src = pick;
 </script>

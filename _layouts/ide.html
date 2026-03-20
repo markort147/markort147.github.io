@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 
+{% assign wants_math = page.use_math | default: false %}
+{% assign wants_code = page.use_code | default: false %}
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -15,46 +18,67 @@
         })();
     </script>
     <link rel="stylesheet" href="{{ '/assets/css/ide.css' | relative_url }}">
-    <link rel="stylesheet"
-        href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css' />
+    {% if wants_code %}
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css'
+        id="hljs-dark">
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css'
+        id="hljs-light" disabled>
+    <script>
+        (function () {
+            const modeAttr = document.documentElement.getAttribute("data-theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const resolved = modeAttr ? modeAttr : (prefersDark ? "dark" : "light");
+            const darkSheet = document.getElementById("hljs-dark");
+            const lightSheet = document.getElementById("hljs-light");
+            if (!darkSheet || !lightSheet) return;
+            const useDark = resolved === "dark";
+            darkSheet.disabled = !useDark;
+            lightSheet.disabled = useDark;
+        })();
+    </script>
+    {% endif %}
+    {% if wants_math %}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    {% endif %}
+    {% if wants_code %}
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    {% endif %}
     <script defer src="{{ '/assets/js/ide.js' | relative_url }}"></script>
 </head>
 
 <body>
     <div id="container">
         <header class="topbar">
-            <div class="brand">ʕ◔ϖ◔ʔ🧠⚛️ {{ site.title }}</div>
-            <button id="theme-toggle">☀️</button>
+            <div class="brand">{{ site.title }}. <span id='random-phrase'></span></div>
+            <script>
+                const phrases = [
+                    "what_to_trust = random.sample(what_people_say, int(len(what_people_say) * 0.3))",
+                    "Molto libero. Poco professionista.",
+                    "As if the world would notice.",
+                ];
+                const el = document.getElementById("random-phrase");
+                el.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            </script>
+            <div class="topbar-actions">
+                <button id="theme-toggle" type="button">☀️</button>
+            </div>
         </header>
 
         <main class="workspace">
-            <aside class="sidebar hidden-mobile" id="sidebar">
+            <aside class="sidebar" id="sidebar">
                 <ul class="tree">
                     <li>
                         <a href="/">home</a>
                     </li>
                     <li>
                         <details>
-                            <summary>posts/</summary>
+                            <summary>posts</summary>
                             <ul>
-                                {% assign ym = site.posts | group_by_exp: "p", "p.date | date: '%Y-%m'" %}
-                                {% assign ym = ym | sort_natural: 'name' | reverse %}
-                                {% for bucket in ym %}
+                                {% for post in site.posts %}
                                 <li>
-                                    <details>
-                                        <summary>{{ bucket.name }}/</summary>
-                                        <ul>
-                                            {% for post in bucket.items %}
-                                            <li>
-                                                <a href="{{ post.url | relative_url }}">
-                                                    {{ post.title }} {{ post.language }}
-                                                </a>
-                                            </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </details>
+                                    <a href="{{ post.url | relative_url }}">
+                                        {{ post.title }} {{ post.language }}
+                                    </a>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -68,11 +92,17 @@
                     </li>
                 </ul>
             </aside>
+            <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
             <section class="editor" id="editor">
                 <div class="tabs">
-                    <button id="sidebar-toggle" class="show-mobile">☰</button>
-                    <div class="tab">{{ page.date | date: '%Y-%m-%d'}} {{ page.title }}</div>
+                    <div class="tabs-left">
+                        <button id="sidebar-toggle" class="show-mobile" type="button" aria-expanded="false"
+                            aria-controls="sidebar">☰</button>
+                        <div class="tab">{{ page.date | date: '%Y-%m-%d'}} {{ page.title }}</div>
+                    </div>
+                    <button id="toc-toggle" class="toc-toggle-btn" type="button" aria-controls="toc-panel"
+                        aria-expanded="false" aria-label="Toggle table of contents">☰</button>
                 </div>
                 <div class="scrollable">
                     <article class="doc content">
@@ -80,6 +110,10 @@
                     </article>
                 </div>
             </section>
+            <aside class="toc-panel" id="toc-panel" aria-label="Table of contents">
+                <nav class="toc-tree" id="toc-tree"></nav>
+            </aside>
+            <div class="toc-backdrop" id="toc-backdrop"></div>
         </main>
     </div>
 </body>
