@@ -1,5 +1,5 @@
 ---
-layout: ide
+layout: post
 title:  "My sources"
 language: 🇬🇧
 published: false

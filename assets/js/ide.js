@@ -89,52 +89,11 @@
 })();
 
 (function () {
-  const toggleBtn = document.getElementById("sidebar-toggle");
-  const sidebar = document.getElementById("sidebar");
-  const backdrop = document.getElementById("sidebar-backdrop");
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
-
-  if (!toggleBtn || !sidebar || !backdrop) return;
-
-  function setState(open) {
-    sidebar.classList.toggle("is-open", open);
-    document.body.classList.toggle("sidebar-open", open);
-    backdrop.classList.toggle("visible", open);
-    toggleBtn.setAttribute("aria-expanded", open);
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    const shouldOpen = !sidebar.classList.contains("is-open");
-    setState(shouldOpen);
-  });
-
-  backdrop.addEventListener("click", () => setState(false));
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      setState(false);
-    }
-  });
-
-  const mqHandler = (event) => {
-    if (!event.matches) {
-      setState(false);
-    }
-  };
-
-  if (typeof mobileQuery.addEventListener === "function") {
-    mobileQuery.addEventListener("change", mqHandler);
-  } else if (typeof mobileQuery.addListener === "function") {
-    mobileQuery.addListener(mqHandler);
-  }
-})();
-
-(function () {
-  const content = document.querySelector(".doc.content");
+  const content = document.querySelector(".content");
   const tocTree = document.getElementById("toc-tree");
   if (!content || !tocTree) return;
 
-  const headings = Array.from(content.querySelectorAll("h2, h3, h4"));
+  const headings = Array.from(content.querySelectorAll("h1, h2, h3, h4"));
   if (!headings.length) {
     tocTree.textContent = "—";
     return;
@@ -160,13 +119,13 @@
   });
 
   const rootList = document.createElement("ul");
-  let currentLevel = 2;
+  let currentLevel = 1;
   const listStack = [rootList];
 
   headings.forEach((heading) => {
     let level = parseInt(heading.tagName[1], 10);
-    if (Number.isNaN(level)) level = 2;
-    level = Math.max(2, Math.min(4, level));
+    if (Number.isNaN(level)) level = 1;
+    level = Math.max(1, Math.min(4, level));
 
     if (level > currentLevel) {
       const targetLevel = Math.min(level, currentLevel + 1);

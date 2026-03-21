@@ -52,68 +52,24 @@
             <div class="brand">{{ site.title }}. <span id='random-phrase'></span></div>
             <script>
                 const phrases = [
-                    "what_to_trust = random.sample(what_people_say, int(len(what_people_say) * 0.3))",
-                    "Molto libero. Poco professionista.",
-                    "As if the world would notice.",
+                    "<a class='topbar-href' href='https://www.youtube.com/watch?v=Qz-Rfh_FXws'>Molto libero. Poco professionista.</a>",
+                    "<a class='topbar-href' href='https://dailystoic.com/imagine-happening-someone-else'>As if the world would notice.</a>",
+                    "<a class='topbar-href' href='https://justfuckingusehtml.com'>HTML rocks.</a>",
+                    "<a class='topbar-href' href='https://www.grug.design/know'>Don't make grug cry.</a>",
                 ];
                 const el = document.getElementById("random-phrase");
-                el.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+                el.innerHTML = phrases[Math.floor(Math.random() * phrases.length)];
             </script>
             <div class="topbar-actions">
+                <a class="topbar-href" href="/">Home</a>
+                <a class="topbar-href" href="/about">About</a>
+                <a class="topbar-href" href="/feed.xml">rss</a>
                 <button id="theme-toggle" type="button">☀️</button>
             </div>
         </header>
 
-        <main class="workspace">
-            <aside class="sidebar" id="sidebar">
-                <ul class="tree">
-                    <li>
-                        <a href="/">home</a>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>posts</summary>
-                            <ul>
-                                {% for post in site.posts %}
-                                <li>
-                                    <a href="{{ post.url | relative_url }}">
-                                        {{ post.title }} {{ post.language }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <a href="/about">about</a>
-                    </li>
-                    <li>
-                        <a href="/feed.xml">rss</a>
-                    </li>
-                </ul>
-            </aside>
-            <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
-
-            <section class="editor" id="editor">
-                <div class="tabs">
-                    <div class="tabs-left">
-                        <button id="sidebar-toggle" class="show-mobile" type="button" aria-expanded="false"
-                            aria-controls="sidebar">☰</button>
-                        <div class="tab">{{ page.date | date: '%Y-%m-%d'}} {{ page.title }}</div>
-                    </div>
-                    <button id="toc-toggle" class="toc-toggle-btn" type="button" aria-controls="toc-panel"
-                        aria-expanded="false" aria-label="Toggle table of contents">☰</button>
-                </div>
-                <div class="scrollable">
-                    <article class="doc content">
-                        {{ content }}
-                    </article>
-                </div>
-            </section>
-            <aside class="toc-panel" id="toc-panel" aria-label="Table of contents">
-                <nav class="toc-tree" id="toc-tree"></nav>
-            </aside>
-            <div class="toc-backdrop" id="toc-backdrop"></div>
+        <main>
+            {{ content }}
         </main>
     </div>
 </body>
