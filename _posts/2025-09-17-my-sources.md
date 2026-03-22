@@ -5,7 +5,8 @@ language: 🇬🇧
 published: false
 ---
 
-# My sources
+In this article I aggregated my main sources of information. They span from opinions to fiction, on Italy and other countries.
+In this article I aggregated my main sources of information. They span from opinions to fiction, on Italy and other countries.
 
 ---
 

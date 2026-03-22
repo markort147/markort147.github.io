@@ -7,8 +7,6 @@ use_code: true
 use_math: true
 ---
 
-# Rendering Sample — Lab Notebook
-
 Use this post to sanity-check the typography stack and how the 0xProto sidebar pairs with a humanist body font.
 
 ## Code experiment

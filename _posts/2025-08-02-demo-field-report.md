@@ -7,8 +7,6 @@ use_code: true
 use_math: true
 ---
 
-# Rendering Sample — Field Report
-
 > Testing a mix of text, tables, inline math, and media so I can tweak the design quickly.
 
 ## Snapshot grid

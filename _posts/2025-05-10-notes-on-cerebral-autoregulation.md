@@ -6,8 +6,6 @@ published: false
 use_math: true
 ---
 
-# Cerebral Autoregulation - Study Notes
-
 > [!info]
 > This is what I noted down during my first adventure in studying Cerebral Autoregulation.
 > My main sources have been:

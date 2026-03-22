@@ -47,16 +47,19 @@
 </head>
 
 <body>
-    <div id="container">
+    <div class="app">
         <header class="topbar">
-            <div class="brand">{{ site.title }}. <span id='random-phrase'></span></div>
+            <div>
+                <div class="brand">{{ site.title }}. </div>
+                <div id='random-phrase' style="font-size: 0.9em;"></div>
+            </div>
             <script>
                 const phrases = [
                     "<a class='topbar-href' href='https://www.youtube.com/watch?v=Qz-Rfh_FXws'>Molto libero. Poco professionista.</a>",
                     "<a class='topbar-href' href='https://dailystoic.com/imagine-happening-someone-else'>As if the world would notice.</a>",
                     "<a class='topbar-href' href='https://justfuckingusehtml.com'>HTML rocks.</a>",
                     "<a class='topbar-href' href='https://grugbrain.dev'>Say no to complexity.</a>",
-                    "<a class='topbar-href' href='https://en.wikipedia.org/wiki/Falsifiability'>Thou shalt have no Grand Narrative before empirical inconvenience.</a>",
+                    "<a class='topbar-href' href='https://en.wikipedia.org/wiki/Falsifiability'>No grand narrative before empirical inconvenience.</a>",
                     "<a class='topbar-href' href='https://www.youtube.com/watch?v=kAqIJZeeXEc&pp'>Has what plants crave.</a>",
                 ];
                 const el = document.getElementById("random-phrase");
@@ -70,9 +73,16 @@
             </div>
         </header>
 
-        <main>
+        <main class="content">
             {{ content }}
         </main>
+
+        <footer class="footer">
+            <a class="topbar-href github" href="https://github.com/markort147" aria-label="GitHub"></a>
+            <a class="topbar-href twitter" href="https://x.com/markort147"></a>
+            <a class="topbar-href instagram" href="https://www.instagram.com/rosmarchino"></a>
+            <a class="topbar-href linkedin" href="https://www.linkedin.com/in/mr93/"></a>
+        </footer>
     </div>
 </body>
 

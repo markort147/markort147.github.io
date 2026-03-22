@@ -6,10 +6,7 @@ published: false
 use_code: true
 ---
 
-# Sul Quorum
-
-
-> In risposta al [video](https://www.youtube.com/watch?v=A-nlXG8DjNo&pp=ygUTZHIgZWxlZ2FudGlhIHF1b3J1bQ%3D%3D) di Dr Elegantia, che, a mio parere, ha argomentato fallacemente.
+In risposta al [video](https://www.youtube.com/watch?v=A-nlXG8DjNo&pp=ygUTZHIgZWxlZ2FudGlhIHF1b3J1bQ%3D%3D) di Dr Elegantia, che, a mio parere, ha argomentato fallacemente.
 
 Chi vorrebbe abolire il quorum parla di distorsione democratica e scarsa partecipazione. Sono d'accordo con Umberto sul fatto che la correlazione tra quorum e partecipazione va dimostrata con i dati. Dati che sembra non mostrare tale correlazione. Ma questo articolo è sull'altro argomento, che mi trova più tendente verso l'abolizione del quorum.
 
