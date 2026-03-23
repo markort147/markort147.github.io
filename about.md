@@ -2,7 +2,7 @@
 layout: ide
 title: About me
 ---
-<div style='padding: 15px;'>
+<div style='padding: 10px 25px; overflow: auto; height: 100%;'>
     <h1>About me</h1>
     <p>Born a week after Jurassic Park was released.</p>
     <p>I wanted to be a movie director. Turns out that involves knowing how to use a camera.</p>
